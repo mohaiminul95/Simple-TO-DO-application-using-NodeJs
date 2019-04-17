@@ -6,16 +6,15 @@
     <body>
         <h1>My TODO Lists</h1>
         <div id="todo-table">
-            <form>
+            <form method="post" action="/todo/">
                 <input type="text" name="item" placeholder="Add new Item">
                 <button type="submit">Add Item</button>
             </form>
         </div>
         <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
+            <% for(i=0; i<todos.length; i++) { %>
+            <li><%= todos[i].item %></li>
+            <% } %>
         </ul>
     </body>
 </html>
