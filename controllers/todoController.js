@@ -13,7 +13,8 @@ app.get('/todo', function(req, res) {
 
 app.post('/todo', urlencodedParser, function(req, res) {
     data.push(req.body);
-    res.render('index',{todos:data});
+    res.json(data);
+    // res.render('index',{todos:data});
 });
 
 app.delete('/todo/:item', function(req, res) {
