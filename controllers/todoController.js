@@ -3,6 +3,24 @@ var data= [{item:'code'},{item:'eat'},{item:'sleep'},{item:'repeat'}];
 var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
+var mongoose= require('mongoose');
+
+mongoose.connect('mongodb://localhost/todo');
+
+var todoSchema= new mongoose.Schema({
+    item: String
+});
+
+var Todo= mongoose.model('Todo',todoSchema);
+
+var itemOne= Todo({item: 'buy coffee'}).save(function(err) {
+    if(err) throw err;
+    console.log('Item Saved');
+});
+
+
+
+
 
 module.exports= function(app) {
 
